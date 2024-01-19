@@ -1,15 +1,17 @@
 #pragma once
 #include "raylib.h"
 
-class cars
+class Cars
 {
-	virtual void Movement();
+	void Movement();
 	void Wrapping();
 
+	Vector2 pos;
+
 public:
-	cars(std::string path, float p_carX, float p_carY, float carSpeed);
-	virtual void Update();
-	virtual void Draw();
+	Cars(std::string path, float p_carX, float p_carY, float carSpeed);
+	void Update();
+	void Draw();
 	float GetX();
 	float GetY();
 	float GetBoxX();
