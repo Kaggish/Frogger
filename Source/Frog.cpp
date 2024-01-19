@@ -1,16 +1,6 @@
 #include "Frog.h"
 
-frog::frog(Screen& p_screen)
-{
-	Setup(p_screen);
-}
-
-frog::~frog()
-{
-
-}
-
-void frog::Setup(Screen& p_screen)
+frog::frog()
 {
 	m_jumping = false;
 	m_onlog = false;
