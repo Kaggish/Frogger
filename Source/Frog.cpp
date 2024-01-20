@@ -1,4 +1,4 @@
-#include "Frog.h"
+#include "Frog.hpp"
 
 frog::frog()
 {

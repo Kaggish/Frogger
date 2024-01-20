@@ -1,4 +1,4 @@
-#include "Lives.h"
+#include "Lives.hpp"
 
 lives::lives(Screen& p_screen, float p_LivesX, float p_LivesY)
 {

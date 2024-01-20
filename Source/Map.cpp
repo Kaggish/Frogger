@@ -1,4 +1,4 @@
-#include "Map.h"
+#include "Map.hpp"
 
 map::map(Screen& p_screen)
 {

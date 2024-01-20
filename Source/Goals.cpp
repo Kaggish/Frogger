@@ -1,4 +1,4 @@
-#include "Goals.h"
+#include "Goals.hpp"
 
 goal::goal(Screen& p_screen, float p_posX, float p_posY, float p_width, float p_height)
 {

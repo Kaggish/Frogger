@@ -1,4 +1,4 @@
-#include "Game.h"
+#include "Game.hpp"
 #include <string>
 
 game::game(Screen& p_screen) : m_frog(p_screen), m_map(p_screen), m_gui(p_screen)

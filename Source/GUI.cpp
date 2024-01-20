@@ -1,4 +1,4 @@
-#include "GUI.h"
+#include "GUI.hpp"
 #include <string>
 
 gui::gui(Screen& p_screen)

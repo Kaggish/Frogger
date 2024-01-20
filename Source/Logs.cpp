@@ -1,4 +1,4 @@
-#include "Logs.h"
+#include "Logs.hpp"
 
 logs::logs(Screen& p_screen, std::string path, float p_logX, float p_logY, float p_logSpeed)
 {
