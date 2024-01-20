@@ -20,7 +20,7 @@ private:
 	Sound m_sound;
 	Sound m_frogsound;
 
-	std::vector<cars> m_cars;
+	std::vector<Cars> m_cars;
 	std::vector<logs> m_logs;
 	std::vector<goal> m_goals;
 

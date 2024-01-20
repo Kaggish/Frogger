@@ -6,10 +6,10 @@ class Cars
 	void Movement();
 	void Wrapping();
 
-	Vector2 pos;
+	Vector2 position;
 
 public:
-	Cars(std::string path, float p_carX, float p_carY, float carSpeed);
+	Cars(float p_carX, float p_carY, float carSpeed);
 	void Update();
 	void Draw();
 	float GetX();

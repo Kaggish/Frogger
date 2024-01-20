@@ -3,6 +3,9 @@
 #include <string_view>
 #include <stdexcept>
 #include <format>
+#include <vector>
+
+using namespace std::literals::string_view_literals;
 
 struct TextureData
 {
@@ -44,7 +47,60 @@ struct TextureData
 	}
 };
 
+struct SoundData
+{
+	Sound m_sound;
+	explicit SoundData(std::string_view Path)
+	{
+		m_sound = LoadSound(Path.data());
+	}
+
+	SoundData(const SoundData& other) = delete;
+	SoundData& operator=(const SoundData& other) = delete;
+
+	SoundData(SoundData&& other) noexcept
+	{
+		std::swap(other.m_sound, m_sound);
+	}
+
+	SoundData& operator=(SoundData&& other) noexcept
+	{
+		if (this != &other)
+		{
+			std::swap(other.m_sound, m_sound);
+		}
+		return *this;
+	}
+
+	~SoundData()
+	{
+		UnloadSound(m_sound);
+	}
+
+	const Sound& get() const noexcept
+	{
+		return m_sound;
+	}
+};
+
 struct Resource
 {
-	Texture2D FrogTexture;
+	std::vector<TextureData> LogTextures;
+	std::vector<TextureData> CarTextures;
+	explicit Resource()
+	{
+		LogTextures.emplace_back("./Assets/Log100.png"sv);
+		LogTextures.emplace_back("./Assets/Log150.png"sv);
+		LogTextures.emplace_back("./Assets/Log250.png"sv);
+
+		CarTextures.emplace_back("Assets/Racecar.png"sv);
+		CarTextures.emplace_back("Assets/Sedan.png"sv);
+		CarTextures.emplace_back("Assets/Tractor.png"sv);
+		CarTextures.emplace_back("Assets/Truck.png"sv);
+		CarTextures.emplace_back("Assets/Bus.png"sv);
+	}
+	TextureData FrogTexture = TextureData("./Assets/Frog.png"sv);
+
+	SoundData CrashSound = SoundData("./Assets/Crash.ogg"sv);
+	SoundData BackgroundSound = SoundData("./Assets/Background.ogg"sv);
 };

@@ -128,7 +128,7 @@ void game::Addtruck(Screen& p_screen)
 {
 	for (int i = 0; i < 3; i++)
 	{
-		m_cars.push_back(cars(p_screen,"Assets/Truck.png", 150, (float)p_screen.GetWindowHeight() / 2 + 75, -3));
+		m_cars.push_back(Cars(p_screen,"Assets/Truck.png", 150, (float)p_screen.GetWindowHeight() / 2 + 75, -3));
 		int Index = (int)m_cars.size() - 1;
 		if (i == 1 || i == 2)
 		{
@@ -141,7 +141,7 @@ void game::Addracecar(Screen& p_screen)
 {
 	for (int i = 0; i < 2; i++)
 	{
-		m_cars.push_back(cars(p_screen, "Assets/Racecar.png", 250, (float)p_screen.GetWindowHeight() / 2 + 125, 4));
+		m_cars.push_back(Cars(p_screen, "Assets/Racecar.png", 250, (float)p_screen.GetWindowHeight() / 2 + 125, 4));
 		int Index = (int)m_cars.size() - 1;
 		if (i == 1)
 		{
@@ -167,7 +167,7 @@ void game::Addbus(Screen& p_screen)
 {
 	for (int i = 0; i < 3;i++)
 	{
-		m_cars.push_back(cars(p_screen,"Assets/Bus.png", 200, (float)p_screen.GetWindowHeight() / 2 + 175, -3));
+		m_cars.push_back(Cars(p_screen,"Assets/Bus.png", 200, (float)p_screen.GetWindowHeight() / 2 + 175, -3));
 		int Index = (int)m_cars.size() - 1;
 		if (i == 1 || i == 2)
 		{
@@ -180,7 +180,7 @@ void game::Addtractor(Screen& p_screen)
 {
 	for (int i = 0; i < 3; i++)
 	{
-		m_cars.push_back(cars(p_screen,"Assets/Tractor.png", 150, (float)p_screen.GetWindowHeight() / 2 + 225, 2));
+		m_cars.push_back(Cars(p_screen,"Assets/Tractor.png", 150, (float)p_screen.GetWindowHeight() / 2 + 225, 2));
 		int Index = (int)m_cars.size() - 1;
 		if (i == 1 || i == 2 || i == 3)
 		{
@@ -193,7 +193,7 @@ void game::AddSedan(Screen& p_screen)
 {
 	for (int i = 0; i < 3; i++)
 	{
-		m_cars.push_back(cars(p_screen,"Assets/Sedan.png", 300, (float)p_screen.GetWindowHeight() / 2 + 275, -3));
+		m_cars.push_back(Cars(p_screen,"Assets/Sedan.png", 300, (float)p_screen.GetWindowHeight() / 2 + 275, -3));
 		int Index = (int)m_cars.size() - 1;
 		if (i == 1 || i == 2)
 		{
