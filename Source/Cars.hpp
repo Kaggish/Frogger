@@ -6,17 +6,20 @@ class Cars
 	void Movement();
 	void Wrapping();
 
-	Vector2 position;
 
 public:
-	Cars(float p_carX, float p_carY, float carSpeed);
+	Vector2 position;
+	const float SPEED = 0;
+
 	void Update();
-	void Draw();
-	float GetX();
+	void Draw(Texture2D& Texture);
+};
+
+	//TODO:Create these functions for later functionality,
+	/*float GetX();
 	float GetY();
 	float GetBoxX();
 	float GetBoxY();
-	float GetWidth();
-	float GetHeight();
-	void SetX(float p_carPosX);
-};
+	float GetWidth(Texture2D& texture);
+	float GetHeight(Texture2D& texture);*/
+	/*void SetX(float p_carPosX);*/
