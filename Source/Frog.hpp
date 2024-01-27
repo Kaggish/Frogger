@@ -1,32 +1,32 @@
 #pragma once
+#include "raylib.h"
 
 class frog
 {
-protected:
-	float m_scale;
-	bool m_jumping;
-	float m_jumptimer;
-	bool m_onlog;
-	Sprite m_sprite;
-	Sound m_sound;
-	virtual void Movement();
+	Vector2 position = {};
+	Vector2 speedDir = {};
+
+	const float SPEED = 7;
+	const float RADIUS = 25;
+	float scale = 50;
+	float jumptimer = 0;
+	float rotation = 0;
+
+	bool jumping = false;
+	bool isonlog = false;
+
+	void Movement();
+	void WorldBlock();
 
 public:
-	frog();
-	void Setup();
-	void WorldBlock();
 	void Input();
-	virtual void Update();
-	virtual void Draw();
-	float GetBoxX();
+	void Update();
+	void Draw(Texture2D& Texture);
+	//TODO: Make these functions work later
+	/*float GetBoxX();
 	float GetBoxY();
 	float GetWidth();
 	float GetHeight();
 	float GetX();
-	float GetY();
-	bool GetOnLog();
-	bool GetJump();
-	void SetJump(bool p_jump);
-	void SetSpeed(float p_speed);
-	void SetOnLog(bool p_onlog);
+	float GetY();*/
 };
