@@ -6,7 +6,7 @@ logs::logs(Screen& p_screen, std::string path, float p_logX, float p_logY, float
 	m_sprite.position.x = p_logX;
 	m_sprite.position.y = p_logY;
 	m_speed.x = p_logSpeed;
-	m_onlog = false;
+	isonlog = false;
 }
 
 logs::~logs()
@@ -79,7 +79,7 @@ float logs::GetSpeed()
 
 bool logs::GetOnLog()
 {
-	return m_onlog;
+	return isonlog;
 }
 
 void logs::SetX(float p_logPosX)
@@ -89,5 +89,5 @@ void logs::SetX(float p_logPosX)
 
 void logs::SetOnlog(bool p_onlog)
 {
-	m_onlog = p_onlog;
+	isonlog = p_onlog;
 }

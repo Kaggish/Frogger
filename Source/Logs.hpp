@@ -5,7 +5,7 @@
 class logs : public gameobject
 {
 	Sprite m_sprite;
-	bool m_onlog;
+	bool isonlog;
 	virtual void Movement();
 public:
 	logs(std::string path, float p_logX, float p_logY, float p_logSpeed);

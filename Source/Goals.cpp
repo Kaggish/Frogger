@@ -11,24 +11,20 @@ goal::goal(Screen& p_screen, float p_posX, float p_posY, float p_width, float p_
 	m_sprite.scale = 1.5;
 }
 
-goal::~goal()
-{
 
-}
-
-void goal::DrawGoals(Screen& p_screen)
+void goal::DrawGoals()
 {
 	p_screen.DrawRectangle((int)m_goalX, (int)m_goalY, (int)m_goalwidth, (int)m_goalheight);
 }
 
-void goal::DrawFrog(Screen& p_screen)
+void goal::DrawFrog()
 {
 	m_sprite.position.x = GetX();
 	m_sprite.position.y = GetY();
 	p_screen.DrawSprite(m_sprite);
 }
 
-void goal::Draw(Screen& p_screen)
+void goal::Draw()
 {
 	DrawGoals(p_screen);
 }
