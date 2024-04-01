@@ -1,6 +1,6 @@
 #include "Logs.hpp"
 
-logs::logs(Screen& p_screen, std::string path, float p_logX, float p_logY, float p_logSpeed)
+Logs::Logs(Screen& p_screen, std::string path, float p_logX, float p_logY, float p_logSpeed)
 {
 	m_sprite = p_screen.LoadSprite(path);
 	m_sprite.position.x = p_logX;
@@ -9,12 +9,12 @@ logs::logs(Screen& p_screen, std::string path, float p_logX, float p_logY, float
 	isonlog = false;
 }
 
-logs::~logs()
+Logs::~Logs()
 {
 
 }
 
-void logs::Wrapping(Screen& p_screen)
+void Logs::Wrapping(Screen& p_screen)
 {
 	if (m_sprite.position.x + GetWidth() < 0)
 	{
@@ -26,68 +26,68 @@ void logs::Wrapping(Screen& p_screen)
 	}
 }
 
-void logs::Movement()
+void Logs::Movement()
 {
 	m_sprite.position.x += (m_speed.x);
 }
 
-void logs::Update(Screen& p_screen)
+void Logs::Update(Screen& p_screen)
 {
 	Movement();
 	Wrapping(p_screen);
 }
 
-void logs::Draw(Screen& p_screen)
+void Logs::Draw(Screen& p_screen)
 {
 	p_screen.DrawSprite(m_sprite);
 }
 
-float logs::GetX()
+float Logs::GetX()
 {
 	return m_sprite.position.x;
 }
 
-float logs::GetY()
+float Logs::GetY()
 {
 	return m_sprite.position.y;
 }
 
-float logs::GetBoxX()
+float Logs::GetBoxX()
 {
 	return m_sprite.position.x + GetWidth();
 }
 
-float logs::GetBoxY()
+float Logs::GetBoxY()
 {
 	return m_sprite.position.y + GetHeight();
 }
 
-float logs::GetWidth()
+float Logs::GetWidth()
 {
 	return (float)m_sprite.texture.width;
 }
 
-float logs::GetHeight()
+float Logs::GetHeight()
 {
 	return (float)m_sprite.texture.height;
 }
 
-float logs::GetSpeed()
+float Logs::GetSpeed()
 {
 	return m_speed.x;
 }
 
-bool logs::GetOnLog()
+bool Logs::GetOnLog()
 {
 	return isonlog;
 }
 
-void logs::SetX(float p_logPosX)
+void Logs::SetX(float p_logPosX)
 {
 	m_sprite.position.x = p_logPosX;
 }
 
-void logs::SetOnlog(bool p_onlog)
+void Logs::SetOnlog(bool p_onlog)
 {
 	isonlog = p_onlog;
 }

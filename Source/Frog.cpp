@@ -1,6 +1,6 @@
 #include "Frog.hpp"
 
-void frog::WorldBlock()
+void Frog::WorldBlock()
 {
 	if (position.x - 25 <= 0)
 	{
@@ -20,7 +20,7 @@ void frog::WorldBlock()
 	}
 }
 
-void frog::Input()
+void Frog::Input()
 {
 	if (IsKeyDown(KEY_W) && jumping == false)
 	{
@@ -48,13 +48,13 @@ void frog::Input()
 	}
 }
 
-void frog::Movement()
+void Frog::Movement()
 {
 	position.x += speedDir.x;
 	position.y += speedDir.y;
 }
 
-void frog::Update()
+void Frog::Update()
 {
 	if (jumping == true)
 	{
@@ -70,7 +70,7 @@ void frog::Update()
 	WorldBlock();
 }
 
-void frog::Draw(Texture2D &Texture)
+void Frog::Draw(Texture2D &Texture)
 {
 	DrawTextureEx(Texture, position, rotation, 1.0f, WHITE);
 }

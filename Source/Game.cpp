@@ -1,15 +1,14 @@
 #include "Game.hpp"
 #include <string>
 
-game::game(Screen& p_screen) : m_frog(p_screen), m_map(p_screen), m_gui(p_screen)
+game::game()
 {
-	AddGoals(p_screen);
-	Addtruck(p_screen);
-	Addracecar(p_screen);
-	Addbus(p_screen);
-	Addtractor(p_screen);
-	AddSedan(p_screen);
-	AddLogs(p_screen);
+	AddGoals();
+	Addtruck();
+	Addracecar();
+	Addbus();
+	AddSedan();
+	AddLogs();
 	m_goalpoints = 0;
 	m_gameon = true;
 	color = { 255, 255, 255, 255 };
@@ -22,21 +21,21 @@ game::~game()
 
 }
 
-void game::FrogCarCollision(Screen& p_screen)
+void game::FrogCarCollision()
 {
 	for (int i = 0; i < m_cars.size(); i++)
 	{
 		if (m_frog.GetX() <= m_cars[i].GetBoxX() && m_frog.GetBoxX() >= m_cars[i].GetX() &&
 			m_frog.GetY() <= m_cars[i].GetBoxY() && m_frog.GetBoxY() >= m_cars[i].GetY())
 		{
-			m_frog.Setup(p_screen);
-			m_gui.DeleteLives(p_screen);
+			m_frog.Setup();
+			m_gui.DeleteLives();
 			p_screen.PlaySound(m_frogsound);
 		}
 	}
 }
 
-void game::FrogLogCollision(Screen& p_screen)
+void game::FrogLogCollision()
 {
 	m_Onlog = false;
 	for (int i = 0; i < m_logs.size(); i++)
@@ -53,7 +52,7 @@ void game::FrogLogCollision(Screen& p_screen)
 	}
 }
 
-void game::FrogWaterCollision(Screen& p_screen)
+void game::FrogWaterCollision()
 {
 	for (int i = 0; i < m_logs.size(); i++)
 	{
@@ -69,7 +68,7 @@ void game::FrogWaterCollision(Screen& p_screen)
 	}
 }
 
-void game::FrogGoalCollision(Screen& p_screen)
+void game::FrogGoalCollision()
 {
 	for (int i = 0; i < m_goals.size(); i++)
 	{
@@ -84,11 +83,11 @@ void game::FrogGoalCollision(Screen& p_screen)
 	}
 }
 
-void game::AddLogs(Screen &p_screen)
+void game::AddLogs()
 {
 	for (int i = 0; i < 3; i++)
 	{
-		m_logs.push_back(logs(p_screen, "Assets/Log150.png", 100, 120, 2));
+		m_logs.push_back(Logs(p_screen, "Assets/Log150.png", 100, 120, 2));
 		int Index = (int)m_logs.size() - 1;
 		if (i == 1 || i == 2)
 		{
@@ -97,7 +96,7 @@ void game::AddLogs(Screen &p_screen)
 	}
 	for (int i = 0; i < 2; i++)
 	{
-		m_logs.push_back(logs(p_screen, "Assets/Log250.png", 50, 170, -1));
+		m_logs.push_back(Logs(p_screen, "Assets/Log250.png", 50, 170, -1));
 		int Index = (int)m_logs.size() - 1;
 		if (i == 1)
 		{
@@ -106,7 +105,7 @@ void game::AddLogs(Screen &p_screen)
 	}
 	for (int i = 0; i < 3; i++)
 	{
-		m_logs.push_back(logs(p_screen, "Assets/Log150.png", 150, 220, 3));
+		m_logs.push_back(Logs(p_screen, "Assets/Log150.png", 150, 220, 3));
 		int Index = (int)m_logs.size() - 1;
 		if (i == 1 || i == 2)
 		{
@@ -115,7 +114,7 @@ void game::AddLogs(Screen &p_screen)
 	}
 	for (int i = 0; i < 4; i++)
 	{
-		m_logs.push_back(logs(p_screen, "Assets/Log100.png", 100, 270, -3));
+		m_logs.push_back(Logs(p_screen, "Assets/Log100.png", 100, 270, -3));
 		int Index = (int)m_logs.size() - 1;
 		if (i == 1 || i == 2 || i == 3)
 		{
@@ -124,7 +123,7 @@ void game::AddLogs(Screen &p_screen)
 	}
 }
 
-void game::Addtruck(Screen& p_screen)
+void game::Addtruck()
 {
 	for (int i = 0; i < 3; i++)
 	{
@@ -137,7 +136,7 @@ void game::Addtruck(Screen& p_screen)
 	}
 }
 
-void game::Addracecar(Screen& p_screen)
+void game::Addracecar()
 {
 	for (int i = 0; i < 2; i++)
 	{
@@ -150,11 +149,11 @@ void game::Addracecar(Screen& p_screen)
 	}
 }
 
-void game::AddGoals(Screen& p_screen)
+void game::AddGoals()
 {
 	for (int i = 0; i < 5; i++)
 	{
-		m_goals.push_back(goal(p_screen, 50, 50, 50, 50));
+		m_goals.push_back(Goal(p_screen, 50, 50, 50, 50));
 		int Index = (int)m_goals.size() - 1;
 		if (i == 1 || i == 2 || i == 3 || i == 4)
 		{
@@ -163,7 +162,7 @@ void game::AddGoals(Screen& p_screen)
 	}
 }
 
-void game::Addbus(Screen& p_screen)
+void game::Addbus()
 {
 	for (int i = 0; i < 3;i++)
 	{
@@ -176,7 +175,7 @@ void game::Addbus(Screen& p_screen)
 	}
 }
 
-void game::Addtractor(Screen& p_screen)
+void game::Addtractor()
 {
 	for (int i = 0; i < 3; i++)
 	{
@@ -189,7 +188,7 @@ void game::Addtractor(Screen& p_screen)
 	}
 }
 
-void game::AddSedan(Screen& p_screen)
+void game::AddSedan()
 {
 	for (int i = 0; i < 3; i++)
 	{
@@ -202,43 +201,43 @@ void game::AddSedan(Screen& p_screen)
 	}
 }
 
-void game::DrawCars(Screen& p_screen)
+void game::DrawCars()
 {
 	for (int i = 0; i < m_cars.size(); i++)
 	{
-		m_cars[i].Draw(p_screen);
+		m_cars[i].Draw();
 	}
 }
 
-void game::UpdateCars(Screen& p_screen)
+void game::UpdateCars()
 {
 	for (int i = 0; i < m_cars.size(); i++)
 	{
-		m_cars[i].Update(p_screen);
+		m_cars[i].Update();
 	}
 }
 
-void game::ProcessInput(Screen& p_screen)
+void game::ProcessInput()
 {
-	m_frog.Input(p_screen);
+	m_frog.Input();
 }
 
-void game::Update(Screen& p_screen)
+void game::Update()
 {
 	if (m_gameon == true)
 	{
 		p_screen.PlaySound(m_sound);
-		m_gui.Update(p_screen);
-		m_frog.Update(p_screen);
-		UpdateCars(p_screen);
+		m_gui.Update();
+		m_frog.Update();
+		UpdateCars();
 		for (int i = 0; i < m_logs.size(); i++)
 		{
-			m_logs[i].Update(p_screen);
+			m_logs[i].Update();
 		}
-		FrogCarCollision(p_screen);
-		FrogLogCollision(p_screen);
-		FrogWaterCollision(p_screen);
-		FrogGoalCollision(p_screen);
+		FrogCarCollision();
+		FrogLogCollision();
+		FrogWaterCollision();
+		FrogGoalCollision();
 		for (int i = 0; i < m_goals.size(); i++)
 		{
 			if (m_goalpoints == 5)
@@ -253,29 +252,29 @@ void game::Update(Screen& p_screen)
 	}
 }
 
-void game::Draw(Screen& p_screen)
+void game::Draw()
 {
 	if (m_gameon == true)
 	{
-		m_map.Draw(p_screen);
+		m_map.Draw();
 		for (int i = 0; i < m_goals.size(); i++)
 		{
-			m_goals[i].Draw(p_screen);
+			m_goals[i].Draw();
 		}
-		m_gui.Draw(p_screen);
-		DrawCars(p_screen);
+		m_gui.Draw();
+		DrawCars();
 		for (int i = 0; i < m_logs.size(); i++)
 		{
-			m_logs[i].Draw(p_screen);
+			m_logs[i].Draw();
 		}
 		for (int i = 0; i < m_goals.size(); i++)
 		{
 			if (m_goals[i].GetTaken() == true)
 			{
-				m_goals[i].DrawFrog(p_screen);
+				m_goals[i].DrawFrog();
 			}
 		}
-		m_frog.Draw(p_screen);
+		m_frog.Draw();
 	}
 	if (m_gameon == false)
 	{

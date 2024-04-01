@@ -1,18 +1,18 @@
 #pragma once
 #include <vector>
-#include "Frog.h"
-#include "Map.h"
-#include "Cars.h"
-#include "Logs.h"
-#include "GUI.h"
-#include "Goals.h"
+#include "Frog.hpp"
+#include "Map.hpp"
+#include "Cars.hpp"
+#include "Logs.hpp"
+#include "GUI.hpp"
+#include "Goals.hpp"
 
 class game
 {
 private:
-	frog m_frog;
-	map m_map;
-	gui m_gui;
+	Frog m_frog;
+	Map m_map;
+	GUI m_gui;
 	bool m_Onlog;
 	int m_goalpoints;
 	bool m_gameon;
@@ -21,8 +21,8 @@ private:
 	Sound m_frogsound;
 
 	std::vector<Cars> m_cars;
-	std::vector<logs> m_logs;
-	std::vector<goal> m_goals;
+	std::vector<Logs> m_logs;
+	std::vector<Goal> m_goals;
 
 	void AddGoals();
 	void AddLogs();

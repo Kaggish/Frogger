@@ -1,7 +1,7 @@
 #include "GUI.hpp"
 #include <string>
 
-gui::gui(Screen& p_screen)
+GUI::GUI(Screen& p_screen)
 {
 	m_scoreX = (float)p_screen.GetWindowWidth() / 2 - 50;
 	m_scoreY = 0;
@@ -10,21 +10,21 @@ gui::gui(Screen& p_screen)
 	AddLives(p_screen);
 }
 
-gui::~gui()
+GUI::~GUI()
 {
 
 }
 
-void gui::AddScore()
+void GUI::AddScore()
 {
 	m_score += 100;
 }
 
-void gui::AddLives(Screen &p_screen)
+void GUI::AddLives(Screen &p_screen)
 {
 	for (int i = 0; i < 3; i++)
 	{
-		m_Lives.push_back(lives(p_screen, 0, (float)p_screen.GetWindowHeight() - 25));
+		m_Lives.push_back(Lives(p_screen, 0, (float)p_screen.GetWindowHeight() - 25));
 		int Index = (int)m_Lives.size() - 1;
 		if (i == 1 || i == 2)
 		{
@@ -33,17 +33,17 @@ void gui::AddLives(Screen &p_screen)
 	}
 }
 
-void gui::DeleteLives(Screen& p_screen)
+void GUI::DeleteLives(Screen& p_screen)
 {
 	m_Lives.pop_back();
 }
 
-void gui::Update(Screen& p_screen)
+void GUI::Update(Screen& p_screen)
 {
 
 }
 
-void gui::Draw(Screen& p_screen)
+void GUI::Draw(Screen& p_screen)
 {
 	p_screen.DrawText((int)m_scoreX, (int)m_scoreY, color, "Score: " + std::to_string(GetScore()));
 	for (int i = 0; i < m_Lives.size(); i++)
@@ -52,12 +52,12 @@ void gui::Draw(Screen& p_screen)
 	}
 }
 
-int gui::GetScore()
+int GUI::GetScore()
 {
 	return m_score;
 }
 
-int gui::GetLives()
+int GUI::GetLives()
 {
 	return (int)m_Lives.size();
 }

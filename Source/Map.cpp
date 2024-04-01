@@ -1,6 +1,6 @@
 #include "Map.hpp"
 
-map::map(Screen& p_screen)
+Map::Map(Screen& p_screen)
 {
 	m_watercolor = { 0, 0 , 255, 255 };
 	m_grasscolor = { 0, 255, 0, 255 };
@@ -19,50 +19,50 @@ map::map(Screen& p_screen)
 	m_safezoneheight = 100;
 }
 
-map::~map()
+Map::~Map()
 {
 
 }
 
-void map::DrawWater(Screen& p_screen)
+void Map::DrawWater(Screen& p_screen)
 {
 	p_screen.DrawRectangle((int)m_waterX, (int)m_waterY, (int)m_waterwidth, (int)m_waterheight, m_watercolor);
 }
 
-void map::DrawGrass(Screen& p_screen)
+void Map::DrawGrass(Screen& p_screen)
 {
 	p_screen.DrawRectangle((int)m_grassX, (int)m_grassY, (int)m_grasswidth, (int)m_grassheight, m_grasscolor);
 }
 
-void map::DrawSafeZone(Screen& p_screen)
+void Map::DrawSafeZone(Screen& p_screen)
 {
 	p_screen.DrawRectangle((int)m_safezoneX, (int)m_safezoneY, (int)m_safezonewidth, (int)m_safezoneheight, m_safezonecolor);
 	p_screen.DrawRectangle((int)m_safezoneX, (int)m_safezoneY + 350, (int)m_safezonewidth, (int)m_safezoneheight - 50, m_safezonecolor);
 }
 
-void map::Draw(Screen& p_screen)
+void Map::Draw(Screen& p_screen)
 {
 	DrawWater(p_screen);
 	DrawGrass(p_screen);
 	DrawSafeZone(p_screen);
 }
 
-float map::GetWaterX()
+float Map::GetWaterX()
 {
 	return m_waterX;
 }
 
-float map::GetWaterY()
+float Map::GetWaterY()
 {
 	return m_waterY;
 }
 
-float map::GetBoxX()
+float Map::GetBoxX()
 {
 	return m_waterX + m_waterwidth;
 }
 
-float map::GetBoxY()
+float Map::GetBoxY()
 {
 	return m_waterY + m_waterheight;
 }

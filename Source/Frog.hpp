@@ -1,7 +1,7 @@
 #pragma once
 #include "raylib.h"
 
-class frog
+class Frog
 {
 	Vector2 position = {};
 	Vector2 speedDir = {};

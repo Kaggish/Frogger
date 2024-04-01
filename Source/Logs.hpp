@@ -2,13 +2,13 @@
 #include "GameObject.h"
 #include <string>
 
-class logs : public gameobject
+class Logs
 {
 	Sprite m_sprite;
 	bool isonlog;
 	virtual void Movement();
 public:
-	logs(std::string path, float p_logX, float p_logY, float p_logSpeed);
+	Logs(std::string path, float p_logX, float p_logY, float p_logSpeed);
 	void Wrapping();
 	virtual void Update();
 	virtual void Draw();

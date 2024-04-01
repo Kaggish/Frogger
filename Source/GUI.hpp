@@ -1,16 +1,16 @@
 #pragma once
-#include "Lives.h"
+#include "Lives.hpp"
 #include <vector>
 
-class gui
+class GUI
 {
 	float m_scoreX, m_scoreY;
 	int m_score;
 	Color color;
 
-	std::vector<lives> m_Lives;
+	std::vector<Lives> m_Lives;
 public:
-	gui();
+	GUI();
 	void AddScore();
 	void AddLives();
 	void DeleteLives();

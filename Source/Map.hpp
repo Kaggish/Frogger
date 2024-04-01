@@ -1,6 +1,6 @@
 #pragma once
 
-class map
+class Map
 {
 	float m_waterX, m_waterY, m_waterwidth, m_waterheight, m_grassX, m_grassY, m_grassheight, m_grasswidth, m_safezoneX, m_safezoneY, m_safezonewidth, m_safezoneheight;
 	Color m_watercolor;
@@ -10,7 +10,7 @@ class map
 	void DrawGrass();
 	void DrawSafeZone();
 public:
-	map();
+	Map();
 	void Draw();
 	float GetWaterX();
 	float GetWaterY();

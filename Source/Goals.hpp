@@ -1,13 +1,13 @@
 #pragma once
 #include <vector>
 
-class goal
+class Goal
 {
 	float m_goalX, m_goalY, m_goalwidth, m_goalheight;
 	bool m_taken;
 
 public:
-	goal(float p_posX, float p_posY, float p_width, float p_height);
+	Goal(float p_posX, float p_posY, float p_width, float p_height);
 	void DrawGoals();
 	void DrawFrog();
 	void Draw();

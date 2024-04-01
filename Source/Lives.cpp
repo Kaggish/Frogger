@@ -1,33 +1,33 @@
 #include "Lives.hpp"
 
-lives::lives(Screen& p_screen, float p_LivesX, float p_LivesY)
+Lives::Lives(Screen& p_screen, float p_LivesX, float p_LivesY)
 {
 	m_sprite = p_screen.LoadSprite("Assets/Frog.png");
 	m_sprite.position.x = p_LivesX;
 	m_sprite.position.y = p_LivesY;
 }
 
-lives::~lives()
+Lives::~Lives()
 {
 
 }
 
-void lives::Update(Screen& p_screen)
+void Lives::Update(Screen& p_screen)
 {
 
 }
 
-void lives::Draw(Screen& p_screen)
+void Lives::Draw(Screen& p_screen)
 {
 	p_screen.DrawSprite(m_sprite);
 }
 
-float lives::GetX()
+float Lives::GetX()
 {
 	return m_sprite.position.x;
 }
 
-void lives::SetX(float p_LivesX)
+void Lives::SetX(float p_LivesX)
 {
 	m_sprite.position.x = p_LivesX;
 }

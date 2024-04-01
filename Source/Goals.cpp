@@ -1,6 +1,6 @@
 #include "Goals.hpp"
 
-goal::goal(Screen& p_screen, float p_posX, float p_posY, float p_width, float p_height)
+Goal::Goal(Screen& p_screen, float p_posX, float p_posY, float p_width, float p_height)
 {
 	m_goalX = p_posX;
 	m_goalY = p_posY;
@@ -12,54 +12,54 @@ goal::goal(Screen& p_screen, float p_posX, float p_posY, float p_width, float p_
 }
 
 
-void goal::DrawGoals()
+void Goal::DrawGoals()
 {
 	p_screen.DrawRectangle((int)m_goalX, (int)m_goalY, (int)m_goalwidth, (int)m_goalheight);
 }
 
-void goal::DrawFrog()
+void Goal::DrawFrog()
 {
 	m_sprite.position.x = GetX();
 	m_sprite.position.y = GetY();
 	p_screen.DrawSprite(m_sprite);
 }
 
-void goal::Draw()
+void Goal::Draw()
 {
 	DrawGoals(p_screen);
 }
 
-float goal::GetX()
+float Goal::GetX()
 {
 	return m_goalX;
 }
 
-float goal::GetY()
+float Goal::GetY()
 {
 	return m_goalY;
 }
 
-float goal::GetBoxX()
+float Goal::GetBoxX()
 {
 	return m_goalX + m_goalwidth;
 }
 
-float goal::GetBoxY()
+float Goal::GetBoxY()
 {
 	return m_goalY + m_goalheight;
 }
 
-bool goal::GetTaken()
+bool Goal::GetTaken()
 {
 	return m_taken;
 }
 
-void goal::SetGoalX(float p_goalX)
+void Goal::SetGoalX(float p_goalX)
 {
 	m_goalX = p_goalX;
 }
 
-void goal::SetTaken(bool p_taken)
+void Goal::SetTaken(bool p_taken)
 {
 	m_taken = p_taken;
 }
