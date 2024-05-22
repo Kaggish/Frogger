@@ -176,7 +176,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\AssetManager.hpp" />
-    <ClInclude Include="Source\Audio.hpp" />
     <ClInclude Include="Source\Cars.hpp" />
     <ClInclude Include="Source\Frog.hpp" />
     <ClInclude Include="Source\Game.hpp" />

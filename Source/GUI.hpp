@@ -4,13 +4,13 @@
 
 class GUI
 {
-	float m_scoreX, m_scoreY;
-	int m_score;
-	Color color;
+	Vector2 position = {};
+	
+	int score = 0;
 
 	std::vector<Lives> m_Lives;
+
 public:
-	GUI();
 	void AddScore();
 	void AddLives();
 	void DeleteLives();

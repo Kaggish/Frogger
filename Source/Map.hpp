@@ -1,16 +1,20 @@
 #pragma once
+#include "raylib.h"
 
 class Map
 {
-	float m_waterX, m_waterY, m_waterwidth, m_waterheight, m_grassX, m_grassY, m_grassheight, m_grasswidth, m_safezoneX, m_safezoneY, m_safezonewidth, m_safezoneheight;
-	Color m_watercolor;
-	Color m_grasscolor;
-	Color m_safezonecolor;
+	Vector2 waterPosition = {};
+	Vector2 grassPosition = {};
+	Vector2 safeZonePosition = {};
+
+	const float waterRadius = 25.0f;
+	const float grassRadius = 25.0f;
+	const float safeZoneRadius = 25.0f;
+
 	void DrawWater();
 	void DrawGrass();
 	void DrawSafeZone();
 public:
-	Map();
 	void Draw();
 	float GetWaterX();
 	float GetWaterY();

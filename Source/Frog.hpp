@@ -6,14 +6,14 @@ class Frog
 	Vector2 position = {};
 	Vector2 speedDir = {};
 
-	const float SPEED = 7;
-	const float RADIUS = 25;
-	float scale = 50;
-	float jumptimer = 0;
-	float rotation = 0;
+	const float SPEED = 7.0f;
+	const float RADIUS = 25.0f;
+	float scale = 50.0f;
+	float jumptimer = 0.0f;
+	float rotation = 0.0f;
 
 	bool jumping = false;
-	bool isonlog = false;
+	bool IsOnLog = false;
 
 	void Movement();
 	void WorldBlock();

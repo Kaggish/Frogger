@@ -13,16 +13,15 @@ private:
 	Frog m_frog;
 	Map m_map;
 	GUI m_gui;
-	bool m_Onlog;
-	int m_goalpoints;
-	bool m_gameon;
+	
+	int goalPoints;
+	bool gameOn;
+	
 	Color color;
-	Sound m_sound;
-	Sound m_frogsound;
 
-	std::vector<Cars> m_cars;
-	std::vector<Logs> m_logs;
-	std::vector<Goal> m_goals;
+	std::vector<Cars> Cars;
+	std::vector<Logs> Logs;
+	std::vector<Goal> Goals;
 
 	void AddGoals();
 	void AddLogs();

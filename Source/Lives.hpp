@@ -1,14 +1,13 @@
 #pragma once
+#include "raylib.h"
 
 class Lives
 {
-	float m_LivesX, m_LivesY;
-	Sprite m_sprite;
+	Vector2 position = {};
 
 public:
-	Lives(float p_LivesX, float p_LivesY);
 	void Update();
 	void Draw();
-	float GetX();
-	void SetX(float p_LivesX);
+	/*float GetX();
+	void SetX(float p_LivesX);*/
 };

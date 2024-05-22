@@ -3,13 +3,13 @@
 
 class Cars
 {
-	void Movement();
-	void Wrapping();
+	Vector2 position = {};
+	const float SPEED = {};
 
+	void Wrapping();
+	void Movement();
 
 public:
-	Vector2 position;
-	const float SPEED = 0;
 
 	void Update();
 	void Draw(Texture2D& Texture);

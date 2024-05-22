@@ -1,22 +1,22 @@
 #pragma once
-#include <vector>
+#include <raylib.h>
 
 class Goal
 {
-	float m_goalX, m_goalY, m_goalwidth, m_goalheight;
-	bool m_taken;
+	Vector2 position = {};
+
+	const float RADIUS = 25.0f;
+
+	bool Scored = false;
 
 public:
-	Goal(float p_posX, float p_posY, float p_width, float p_height);
-	void DrawGoals();
-	void DrawFrog();
-	void Draw();
-	float GetX();
+	void Draw(Texture2D& texture);
+	/*float GetX();
 	float GetY();
 	float GetBoxX();
 	float GetBoxY();
 	bool GetTaken();
 	void SetGoalX(float p_goalX);
-	void SetTaken(bool p_taken);
+	void SetTaken(bool p_taken);*/
 };
  
