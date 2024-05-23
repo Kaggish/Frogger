@@ -3,7 +3,7 @@
 
 void GUI::AddScore()
 {
-	m_score += 100;
+	score += 100;
 }
 
 void GUI::AddLives()
@@ -40,7 +40,7 @@ void GUI::Draw()
 
 int GUI::GetScore()
 {
-	return m_score;
+	return score;
 }
 
 int GUI::GetLives()
