@@ -3,11 +3,13 @@
 
 class Frog
 {
-	Vector2 position = {};
+	Vector2 position = {300, 300};
 	Vector2 speedDir = {};
 
+	float Offset = 10;
+
 	const float SPEED = 7.0f;
-	const float RADIUS = 25.0f;
+	const float RADIUS = 10.0f;
 	float scale = 50.0f;
 	float jumptimer = 0.0f;
 	float rotation = 0.0f;
@@ -17,6 +19,7 @@ class Frog
 
 	void Movement();
 	void WorldBlock();
+	Rectangle HitBox();
 
 public:
 	void Input();

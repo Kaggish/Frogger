@@ -1,7 +1,7 @@
 #include "Game.hpp"
 #include <string>
 
-void game::FrogCarCollision()
+void Game::FrogCarCollision()
 {
 	//for (int i = 0; i < Cars.size(); i++)
 	//{
@@ -15,7 +15,7 @@ void game::FrogCarCollision()
 	//}
 }
 
-void game::FrogLogCollision()
+void Game::FrogLogCollision()
 {
 	//for (int i = 0; i < Logs.size(); i++)
 	//{
@@ -31,7 +31,7 @@ void game::FrogLogCollision()
 	//}
 }
 
-void game::FrogWaterCollision()
+void Game::FrogWaterCollision()
 {
 	//for (int i = 0; i < Logs.size(); i++)
 	//{
@@ -47,7 +47,7 @@ void game::FrogWaterCollision()
 	//}
 }
 
-void game::FrogGoalCollision()
+void Game::FrogGoalCollision()
 {
 	//for (int i = 0; i < Goals.size(); i++)
 	//{
@@ -62,7 +62,7 @@ void game::FrogGoalCollision()
 	//}
 }
 
-void game::AddLogs()
+void Game::AddLogs()
 {
 	//for (int i = 0; i < 3; i++)
 	//{
@@ -102,7 +102,7 @@ void game::AddLogs()
 	//}
 }
 
-void game::Addtruck()
+void Game::Addtruck()
 {
 	//for (int i = 0; i < 3; i++)
 	//{
@@ -115,7 +115,7 @@ void game::Addtruck()
 	//}
 }
 
-void game::Addracecar()
+void Game::Addracecar()
 {
 	//for (int i = 0; i < 2; i++)
 	//{
@@ -128,7 +128,7 @@ void game::Addracecar()
 	//}
 }
 
-void game::AddGoals()
+void Game::AddGoals()
 {
 	//for (int i = 0; i < 5; i++)
 	//{
@@ -141,7 +141,7 @@ void game::AddGoals()
 	//}
 }
 
-void game::Addbus()
+void Game::Addbus()
 {
 	//for (int i = 0; i < 3;i++)
 	//{
@@ -154,7 +154,7 @@ void game::Addbus()
 	//}
 }
 
-void game::Addtractor()
+void Game::Addtractor()
 {
 	//for (int i = 0; i < 3; i++)
 	//{
@@ -167,7 +167,7 @@ void game::Addtractor()
 	//}
 }
 
-void game::AddSedan()
+void Game::AddSedan()
 {
 	//for (int i = 0; i < 3; i++)
 	//{
@@ -180,7 +180,7 @@ void game::AddSedan()
 	//}
 }
 
-void game::DrawCars()
+void Game::DrawCars()
 {
 	//for (int i = 0; i < Cars.size(); i++)
 	//{
@@ -188,7 +188,7 @@ void game::DrawCars()
 	//}
 }
 
-void game::UpdateCars()
+void Game::UpdateCars()
 {
 	/*for (int i = 0; i < Cars.size(); i++)
 	{
@@ -196,15 +196,14 @@ void game::UpdateCars()
 	}*/
 }
 
-void game::ProcessInput()
+void Game::ProcessInput()
 {
 	m_frog.Input();
 }
 
-void game::Update()
+void Game::Update()
 {
-	if (gameOn == true)
-	{
+	
 		m_gui.Update();
 		m_frog.Update();
 		UpdateCars();
@@ -227,13 +226,12 @@ void game::Update()
 		{
 			gameOn = false;
 		}
-	}
+	
 }
 
-void game::Draw()
+void Game::Draw()
 {
-	if (gameOn == true)
-	{
+	
 		m_map.Draw();
 		//for (int i = 0; i < Goals.size(); i++)
 		//{
@@ -252,10 +250,10 @@ void game::Draw()
 		//		Goals[i].DrawFrog();
 		//	}*/
 		//}
-		/*m_frog.Draw();*/
-	}
+	
 	if (gameOn == false)
 	{
 		/*p_screen.DrawText(p_screen.GetWindowWidth() / 2, p_screen.GetWindowHeight() / 2, color, "Score: " + std::to_string(m_gui.GetScore()));*/
 	}
+	m_frog.Draw(asset.FrogTexture.m_texture);
 }

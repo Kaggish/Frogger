@@ -13,7 +13,7 @@
 
 void Goal::Draw(Texture2D& texture)
 {
-	DrawTextureEx(texture, position, 0, 1.0f, WHITE);
+	DrawTextureV(texture, position, WHITE);
 }
 
 //float Goal::GetX()

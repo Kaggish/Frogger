@@ -6,8 +6,9 @@
 #include "Logs.hpp"
 #include "GUI.hpp"
 #include "Goals.hpp"
+#include "AssetManager.hpp"
 
-class game
+class Game
 {
 private:
 	Frog m_frog;
@@ -23,6 +24,8 @@ private:
 	std::vector<Logs> Logs;
 	std::vector<Goal> Goals;
 
+	Resource asset;
+
 	void AddGoals();
 	void AddLogs();
 	void Addtruck();
@@ -37,7 +40,6 @@ private:
 	void DrawCars();
 	void UpdateCars();
 public:
-	game();
 	void ProcessInput();
 	void Update();
 	void Draw();
