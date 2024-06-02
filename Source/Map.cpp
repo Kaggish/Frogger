@@ -19,27 +19,34 @@
 //	m_safezoneheight = 100;
 //}
 
-void Map::DrawWater()
+void Map::Draw(Texture2D& WaterTexture, Texture2D& GrassTexture, Texture2D& RoadTexture, Texture2D& SafeZoneTexture)
 {
-	/*p_screen.DrawRectangle((int)m_waterX, (int)m_waterY, (int)m_waterwidth, (int)m_waterheight, m_watercolor);*/
-}
-
-void Map::DrawGrass()
-{
-	/*p_screen.DrawRectangle((int)m_grassX, (int)m_grassY, (int)m_grasswidth, (int)m_grassheight, m_grasscolor);*/
-}
-
-void Map::DrawSafeZone()
-{
-	/*p_screen.DrawRectangle((int)m_safezoneX, (int)m_safezoneY, (int)m_safezonewidth, (int)m_safezoneheight, m_safezonecolor);
-	p_screen.DrawRectangle((int)m_safezoneX, (int)m_safezoneY + 350, (int)m_safezonewidth, (int)m_safezoneheight - 50, m_safezonecolor);*/
-}
-
-void Map::Draw()
-{
-	DrawWater();
-	DrawGrass();
-	DrawSafeZone();
+	for (int j = 0; j < 17; j++)
+	{
+		for (int x = 0; x < 16; x++)
+		{
+			if (mapLayout[j][x] == 0)
+			{
+				DrawTextureV(GrassTexture, { static_cast<float>(x * (Radius * 2)), static_cast<float>(j * (Radius * 2)) }, WHITE);
+			}
+			else if (mapLayout[j][x] == 1)
+			{
+				DrawTextureV(WaterTexture, { static_cast<float>(x * (Radius * 2)), static_cast<float>(j * (Radius * 2)) }, WHITE);
+			}
+			else if (mapLayout[j][x] == 2)
+			{
+				DrawTextureV(SafeZoneTexture, { static_cast<float>(x * (Radius * 2)), static_cast<float>(j * (Radius * 2)) }, WHITE);
+			}
+			else if (mapLayout[j][x] == 3)
+			{
+				DrawTextureV(WaterTexture, { static_cast<float>(x * (Radius * 2)), static_cast<float>(j * (Radius * 2)) }, WHITE);
+			}
+			else if (mapLayout[j][x] == 4)
+			{
+				DrawTextureV(RoadTexture, { static_cast<float>(x * (Radius * 2)), static_cast<float>(j * (Radius * 2)) }, WHITE);
+			}
+		}
+	}
 }
 
 //float Map::GetWaterX()

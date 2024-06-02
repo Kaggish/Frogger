@@ -231,8 +231,7 @@ void Game::Update()
 
 void Game::Draw()
 {
-	
-		m_map.Draw();
+		m_map.Draw(asset.WaterTexture.m_texture, asset.GrassTexture.m_texture, asset.RoadTexture.m_texture, asset.SafeZoneTexture.m_texture);
 		//for (int i = 0; i < Goals.size(); i++)
 		//{
 		//	/*Goals[i].Draw();*/

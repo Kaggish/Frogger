@@ -5,7 +5,7 @@ class Goal
 {
 	Vector2 position = {};
 
-	const float RADIUS = 25.0f;
+	const float RADIUS = 10.0f;
 
 	bool Scored = false;
 

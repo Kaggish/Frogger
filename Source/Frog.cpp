@@ -28,27 +28,28 @@ void Frog::WorldBlock()
 
 void Frog::Input()
 {
-	if (IsKeyPressed(KEY_W) && jumping == false)
+	speedDir = { 0, 0 };
+	if (IsKeyPressed(KEY_W))
 	{
-		speedDir = { 0, -8 };
+		speedDir = { 0, -20 };
 		jumping = true;
 		rotation = 0;
 	}
-	if (IsKeyPressed(KEY_A) && jumping == false)
+	if (IsKeyPressed(KEY_A))
 	{
-		speedDir = { -8, 0 };
+		speedDir = { -20, 0 };
 		jumping = true;
 		rotation = 270;
 	}
-	if (IsKeyPressed(KEY_S) && jumping == false)
+	if (IsKeyPressed(KEY_S))
 	{
-		speedDir = { 0, 8 };
+		speedDir = { 0, 20 };
 		jumping = true;
 		rotation = 180;
 	}
-	if (IsKeyPressed(KEY_D) && jumping == false)
+	if (IsKeyPressed(KEY_D))
 	{
-		speedDir = { 8, 0 };
+		speedDir = { 20, 0 };
 		jumping = true;
 		rotation = 90;
 	}
@@ -62,7 +63,7 @@ void Frog::Movement()
 
 void Frog::Update()
 {
-	if (jumping == true)
+	/*if (jumping == true)
 	{
 		jumptimer++;
 	}
@@ -71,7 +72,7 @@ void Frog::Update()
 		jumping = false;
 		speedDir = { 0, 0 };
 		jumptimer = 0;
-	}
+	}*/
 	Movement();
 	WorldBlock();
 }
@@ -82,5 +83,4 @@ void Frog::Draw(Texture2D &Texture)
 		Rectangle(0.0f, 0.0f, static_cast<float>(Texture.width), static_cast<float>(Texture.height)), 
 		Rectangle(position.x, position.y, static_cast<float>(Texture.width), static_cast<float>(Texture.height)),
 		{Texture.width/2.0f, Texture.height/2.0f}, rotation, WHITE); //This is fcking disgusting, can´t come up how to rotate the texture
-	DrawRectangle((int)HitBox().x, (int)HitBox().y, (int)RADIUS * 2, (int)RADIUS * 2, RED);
 }

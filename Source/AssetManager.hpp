@@ -100,6 +100,10 @@ struct Resource
 		CarTextures.emplace_back("Assets/Bus.png"sv);
 	}
 	TextureData FrogTexture = TextureData("./Assets/Frog.png"sv);
+	TextureData WaterTexture = TextureData("./Assets/Water.png"sv);
+	TextureData RoadTexture = TextureData("./Assets/Road.png"sv);
+	TextureData GrassTexture = TextureData("./Assets/Grass.png"sv);
+	TextureData SafeZoneTexture = TextureData("./Assets/SafeZone.png"sv);
 
 	SoundData CrashSound = SoundData("./Assets/Crash.ogg"sv);
 	SoundData BackgroundSound = SoundData("./Assets/Background.ogg"sv);
