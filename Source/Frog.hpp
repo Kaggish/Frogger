@@ -3,13 +3,13 @@
 
 class Frog
 {
-	Vector2 position = {300, 300};
+	Vector2 position = {((float)GetScreenWidth() / 2), 500};
 	Vector2 speedDir = {};
 
-	float Offset = 10;
+	float Offset = 12.5f;
 
 	const float SPEED = 7.0f;
-	const float RADIUS = 10.0f;
+	const float RADIUS = 12.5f;
 	float scale = 50.0f;
 	float jumptimer = 0.0f;
 	float rotation = 0.0f;

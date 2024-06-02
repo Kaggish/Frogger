@@ -3,10 +3,10 @@
 
 int main(void)
 {   
-    const int screenWidth = 500;
-    const int screenHeight = 600;
+    const int screenWidth = 400;
+    const int screenHeight = 550;
 
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+    InitWindow(screenWidth, screenHeight, "Frogger");
     Game Game;
 
     SetTargetFPS(60);               
