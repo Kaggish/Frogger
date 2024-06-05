@@ -131,6 +131,7 @@ void Game::AddGoals()
 {
 	for (int i = 0; i < 5; ++i)
 	{
+		//TODO; Make this into a for loop
 		Goals.emplace_back();
 
 		switch (i)
