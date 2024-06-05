@@ -4,7 +4,7 @@
 
 class GUI
 {
-	Vector2 position = {};
+	Vector2 Position = {};
 	
 	int score = 0;
 

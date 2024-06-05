@@ -3,20 +3,16 @@
 
 class Goal
 {
-	Vector2 position = {};
+	Vector2 Position = {0, 0};
 
 	const float RADIUS = 10.0f;
-
 	bool Scored = false;
 
+
 public:
+	Rectangle HitBox();
 	void Draw(Texture2D& texture);
-	/*float GetX();
-	float GetY();
-	float GetBoxX();
-	float GetBoxY();
-	bool GetTaken();
-	void SetGoalX(float p_goalX);
-	void SetTaken(bool p_taken);*/
+
+	void SetPos(Vector2 position);
 };
  

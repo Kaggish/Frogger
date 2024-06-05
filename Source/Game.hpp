@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "raylib.h"
 #include "Frog.hpp"
 #include "Map.hpp"
 #include "Cars.hpp"
@@ -11,14 +12,11 @@
 class Game
 {
 private:
-	Frog m_frog;
-	Map m_map;
-	GUI m_gui;
+	Frog Frog;
+	Map Map;
+	GUI GUI;
 	
-	int goalPoints;
-	bool gameOn;
-	
-	Color color;
+	bool gameOn = false;
 
 	std::vector<Cars> Cars;
 	std::vector<Logs> Logs;
@@ -40,6 +38,13 @@ private:
 	void DrawCars();
 	void UpdateCars();
 public:
+	Game();
+	Game(const Game&) = delete;
+	Game operator=(const Game&) = delete;
+	Game(Game&&) noexcept = delete;
+	Game operator=(Game&&) noexcept = delete;
+	~Game();
+
 	void ProcessInput();
 	void Update();
 	void Draw();

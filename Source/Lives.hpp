@@ -3,7 +3,7 @@
 
 class Lives
 {
-	Vector2 position = {};
+	Vector2 Position = {};
 
 public:
 	void Update();

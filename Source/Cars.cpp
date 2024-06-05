@@ -5,19 +5,19 @@
 void Cars::Wrapping()
 {
 	//TODO: Use the ternary operator to make this into one line
-	if (position.x < 0)
+	if (Position.x < 0)
 	{
-		position.x = (float)GetScreenWidth();
+		Position.x = (float)GetScreenWidth();
 	}
-	else if (position.x > (float)GetScreenWidth())
+	else if (Position.x > (float)GetScreenWidth())
 	{
-		position.x = 0;
+		Position.x = 0;
 	}
 }
 
 void Cars::Movement()
 {
-	position.x += SPEED * GetFrameTime();
+	Position.x += SPEED * GetFrameTime();
 }
 
 void Cars::Update()
@@ -28,6 +28,6 @@ void Cars::Update()
 
 void Cars::Draw(Texture2D &Texture)
 {
-	DrawTextureV(Texture, position, WHITE);
+	DrawTextureV(Texture, Position, WHITE);
 }
 

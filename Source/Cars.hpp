@@ -3,7 +3,7 @@
 
 class Cars
 {
-	Vector2 position = {};
+	Vector2 Position = {};
 	const float SPEED = {};
 
 	void Wrapping();

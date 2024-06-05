@@ -1,5 +1,4 @@
 #include "Game.hpp"
-#include <string>
 
 void Game::FrogCarCollision()
 {
@@ -130,15 +129,33 @@ void Game::Addracecar()
 
 void Game::AddGoals()
 {
-	//for (int i = 0; i < 5; i++)
-	//{
-	//	/*m_goals.push_back(Goal(p_screen, 50, 50, 50, 50));*/
-	//	/*int Index = (int)Goals.size() - 1;*/
-	//	if (i == 1 || i == 2 || i == 3 || i == 4)
-	//	{
-	//		/*m_goals[Index].SetGoalX(m_goals[(long long)Index - 1].GetX() + 150);*/
-	//	}
-	//}
+	for (int i = 0; i < 5; ++i)
+	{
+		Goals.emplace_back();
+
+		switch (i)
+		{
+			case 0:
+				Goals[i].SetPos({ 20.0f, 20.0f });
+				break;
+
+			case 1:
+				Goals[i].SetPos({ 80.0f, 20.0f });
+				break;
+
+			case 2:
+				Goals[i].SetPos({ 140.0f, 20.0f });
+				break;
+
+			case 3:
+				Goals[i].SetPos({ 200.0f, 20.0f });
+				break;
+
+			case 4:
+				Goals[i].SetPos({ 260.0f, 20.0f });
+				break;
+		}
+	}
 }
 
 void Game::Addbus()
@@ -196,63 +213,33 @@ void Game::UpdateCars()
 	}*/
 }
 
+Game::Game()
+{
+	AddGoals();
+}
+
+Game::~Game()
+{
+	Goals.clear();
+}
+
 void Game::ProcessInput()
 {
-	m_frog.Input();
+	Frog.Input();
 }
 
 void Game::Update()
 {
-	
-		m_gui.Update();
-		m_frog.Update();
-		UpdateCars();
-		for (int i = 0; i < Logs.size(); i++)
-		{
-			Logs[i].Update();
-		}
-		FrogCarCollision();
-		FrogLogCollision();
-		FrogWaterCollision();
-		FrogGoalCollision();
-		for (int i = 0; i < Goals.size(); i++)
-		{
-			if (goalPoints == 5)
-			{
-				/*Goals[i].SetTaken(false);*/
-			}
-		}
-		if (m_gui.GetLives() == 0)
-		{
-			gameOn = false;
-		}
-	
+		Frog.Update();
 }
 
 void Game::Draw()
 {
-		m_map.Draw(asset.WaterTexture.m_texture, asset.GrassTexture.m_texture, asset.RoadTexture.m_texture, asset.SafeZoneTexture.m_texture);
-		//for (int i = 0; i < Goals.size(); i++)
-		//{
-		//	/*Goals[i].Draw();*/
-		//}
-		m_gui.Draw();
-		DrawCars();
-		/*for (int i = 0; i < Logs.size(); i++)
+		Map.Draw(asset.WaterTexture.m_texture, asset.GrassTexture.m_texture, asset.RoadTexture.m_texture, asset.SafeZoneTexture.m_texture);
+		Frog.Draw(asset.FrogTexture.m_texture);
+		
+		for (int i = 0; i < Goals.size(); ++i)
 		{
-			Logs[i].Draw();
-		}*/
-		//for (int i = 0; i < Goals.size(); i++)
-		//{
-		//	/*if (Goals[i].GetTaken() == true)
-		//	{
-		//		Goals[i].DrawFrog();
-		//	}*/
-		//}
-	
-	if (gameOn == false)
-	{
-		/*p_screen.DrawText(p_screen.GetWindowWidth() / 2, p_screen.GetWindowHeight() / 2, color, "Score: " + std::to_string(m_gui.GetScore()));*/
-	}
-	m_frog.Draw(asset.FrogTexture.m_texture);
+			DrawRectangle(static_cast<int>(Goals[i].HitBox().x), static_cast<int>(Goals[i].HitBox().y), static_cast<int>(Goals[i].HitBox().width), static_cast<int>(Goals[i].HitBox().height), RED);
+		}
 }

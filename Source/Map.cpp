@@ -1,23 +1,9 @@
 #include "Map.hpp"
 
-//Map::Map(Screen& p_screen)
-//{
-//	m_watercolor = { 0, 0 , 255, 255 };
-//	m_grasscolor = { 0, 255, 0, 255 };
-//	m_safezonecolor = { 127, 0, 255, 255 };
-//	m_waterX = 0;
-//	m_waterY = 100;
-//	m_waterwidth = (float)p_screen.GetWindowWidth();
-//	m_waterheight = 200;
-//	m_grassX = 0;
-//	m_grassY = 0;
-//	m_grasswidth = (float)p_screen.GetWindowWidth();
-//	m_grassheight = 100;
-//	m_safezoneX = 0;
-//	m_safezoneY = (float)p_screen.GetWindowHeight() / 2 - 50;
-//	m_safezonewidth =(float)p_screen.GetWindowWidth();
-//	m_safezoneheight = 100;
-//}
+Rectangle Map::WaterHitBox()
+{
+	return Rectangle(0, 60, static_cast<float>(GetScreenWidth()), 100);
+}
 
 void Map::Draw(Texture2D& WaterTexture, Texture2D& GrassTexture, Texture2D& RoadTexture, Texture2D& SafeZoneTexture)
 {
@@ -25,46 +11,24 @@ void Map::Draw(Texture2D& WaterTexture, Texture2D& GrassTexture, Texture2D& Road
 	{
 		for (int x = 0; x < 16; x++)
 		{
-			if (mapLayout[j][x] == 0)
+			switch (mapLayout[j][x])
 			{
-				DrawTextureV(GrassTexture, { static_cast<float>(x * (Radius * 2)), static_cast<float>(j * (Radius * 2)) }, WHITE);
-			}
-			else if (mapLayout[j][x] == 1)
-			{
-				DrawTextureV(WaterTexture, { static_cast<float>(x * (Radius * 2)), static_cast<float>(j * (Radius * 2)) }, WHITE);
-			}
-			else if (mapLayout[j][x] == 2)
-			{
-				DrawTextureV(SafeZoneTexture, { static_cast<float>(x * (Radius * 2)), static_cast<float>(j * (Radius * 2)) }, WHITE);
-			}
-			else if (mapLayout[j][x] == 3)
-			{
-				DrawTextureV(WaterTexture, { static_cast<float>(x * (Radius * 2)), static_cast<float>(j * (Radius * 2)) }, WHITE);
-			}
-			else if (mapLayout[j][x] == 4)
-			{
-				DrawTextureV(RoadTexture, { static_cast<float>(x * (Radius * 2)), static_cast<float>(j * (Radius * 2)) }, WHITE);
+				case 0:
+					DrawTextureV(GrassTexture, { static_cast<float>(x * (Radius * 2)), static_cast<float>(j * (Radius * 2)) }, WHITE);
+					break;
+
+				case 1:
+					DrawTextureV(WaterTexture, { static_cast<float>(x * (Radius * 2)), static_cast<float>(j * (Radius * 2)) }, WHITE);
+					break;
+
+				case 2:
+					DrawTextureV(SafeZoneTexture, { static_cast<float>(x * (Radius * 2)), static_cast<float>(j * (Radius * 2)) }, WHITE);
+					break;
+
+				case 3:
+					DrawTextureV(RoadTexture, { static_cast<float>(x * (Radius * 2)), static_cast<float>(j * (Radius * 2)) }, WHITE);
+					break;
 			}
 		}
 	}
 }
-
-//float Map::GetWaterX()
-//{
-//	return m_waterX;
-//}
-//
-//float Map::GetWaterY()
-//{
-//	return m_waterY;
-//}
-//
-//float Map::GetBoxX()
-//{
-//	return m_waterX + m_waterwidth;
-//}
-//
-//float Map::GetBoxY()
-//{
-//	return m_waterY + m_waterheight;
-//}

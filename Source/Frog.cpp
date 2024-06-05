@@ -2,26 +2,26 @@
 
 Rectangle Frog::HitBox()
 {
-	return Rectangle(position.x - Offset, position.y - Offset, RADIUS * 2.0f, RADIUS * 2.0f);
+	return Rectangle(Position.x - Offset, Position.y - Offset, RADIUS * 2.0f, RADIUS * 2.0f);
 }
 
 void Frog::WorldBlock()
 {
-	if (position.x - Offset <= 0)
+	if (Position.x - Offset <= 0)
 	{
-		position.x = 0 + Offset;
+		Position.x = 0 + Offset;
 	}
-	if (position.x + Offset >= GetScreenWidth())
+	if (Position.x + Offset >= GetScreenWidth())
 	{
-		position.x = (float)GetScreenWidth() - Offset;
+		Position.x = (float)GetScreenWidth() - Offset;
 	}
-	if (position.y - Offset <= 0)
+	if (Position.y - Offset <= 0)
 	{
-		position.y = 0 + Offset;
+		Position.y = 0 + Offset;
 	}
-	if (position.y + Offset >= GetScreenHeight())
+	if (Position.y + Offset >= GetScreenHeight())
 	{
-		position.y = (float)GetScreenHeight() - Offset;
+		Position.y = (float)GetScreenHeight() - Offset;
 	}
 }
 
@@ -57,22 +57,12 @@ void Frog::Input()
 
 void Frog::Movement()
 {
-	position.x += speedDir.x;
-	position.y += speedDir.y;
+	Position.x += speedDir.x;
+	Position.y += speedDir.y;
 }
 
 void Frog::Update()
 {
-	/*if (jumping == true)
-	{
-		jumptimer++;
-	}
-	if (jumptimer == 4)
-	{
-		jumping = false;
-		speedDir = { 0, 0 };
-		jumptimer = 0;
-	}*/
 	Movement();
 	WorldBlock();
 }
@@ -81,6 +71,6 @@ void Frog::Draw(Texture2D &Texture)
 {
 	DrawTexturePro(Texture, 
 		Rectangle(0.0f, 0.0f, static_cast<float>(Texture.width), static_cast<float>(Texture.height)), 
-		Rectangle(position.x, position.y, static_cast<float>(Texture.width), static_cast<float>(Texture.height)),
+		Rectangle(Position.x, Position.y, static_cast<float>(Texture.width), static_cast<float>(Texture.height)),
 		{Texture.width/2.0f, Texture.height/2.0f}, rotation, WHITE); //This is fcking disgusting, can´t come up how to rotate the texture
 }
