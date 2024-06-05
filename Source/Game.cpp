@@ -131,7 +131,7 @@ void Game::AddGoals()
 {
 	for (int i = 0; i < 5; ++i)
 	{
-		//TODO; Make this into a for loop
+		//TODO; Make this into a for loop, I want to use emplace_back and add a position in it, does not seem to work, have done it in another project, but does net seem to work here
 		Goals.emplace_back();
 
 		switch (i)
