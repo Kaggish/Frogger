@@ -7,6 +7,8 @@ Rectangle Map::WaterHitBox()
 
 void Map::Draw(Texture2D& WaterTexture, Texture2D& GrassTexture, Texture2D& RoadTexture, Texture2D& SafeZoneTexture)
 {
+	
+
 	for (int j = 0; j < 17; j++)
 	{
 		for (int x = 0; x < 16; x++)

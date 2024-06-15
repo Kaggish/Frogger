@@ -1,5 +1,17 @@
 #include "Game.hpp"
 
+Game::Game()
+{
+	AddGoals();
+}
+
+Game::~Game()
+{
+	Goals.clear();
+	Logs.clear();
+	Cars.clear();
+}
+
 void Game::FrogCarCollision()
 {
 	//for (int i = 0; i < Cars.size(); i++)
@@ -214,16 +226,6 @@ void Game::UpdateCars()
 	}*/
 }
 
-Game::Game()
-{
-	AddGoals();
-}
-
-Game::~Game()
-{
-	Goals.clear();
-}
-
 void Game::ProcessInput()
 {
 	Frog.Input();
@@ -231,16 +233,16 @@ void Game::ProcessInput()
 
 void Game::Update()
 {
-		Frog.Update();
+	Frog.Update();
 }
 
 void Game::Draw()
 {
-		Map.Draw(asset.WaterTexture.m_texture, asset.GrassTexture.m_texture, asset.RoadTexture.m_texture, asset.SafeZoneTexture.m_texture);
-		Frog.Draw(asset.FrogTexture.m_texture);
-		
-		for (int i = 0; i < Goals.size(); ++i)
-		{
-			DrawRectangle(static_cast<int>(Goals[i].HitBox().x), static_cast<int>(Goals[i].HitBox().y), static_cast<int>(Goals[i].HitBox().width), static_cast<int>(Goals[i].HitBox().height), RED);
-		}
+	Map.Draw(asset.WaterTexture.m_texture, asset.GrassTexture.m_texture, asset.RoadTexture.m_texture, asset.SafeZoneTexture.m_texture);
+	Frog.Draw(asset.FrogTexture.m_texture);
+	
+	for (int i = 0; i < Goals.size(); ++i)
+	{
+		DrawRectangle(static_cast<int>(Goals[i].HitBox().x), static_cast<int>(Goals[i].HitBox().y), static_cast<int>(Goals[i].HitBox().width), static_cast<int>(Goals[i].HitBox().height), RED);
+	}
 }

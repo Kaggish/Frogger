@@ -19,17 +19,11 @@ class Frog
 
 	void Movement();
 	void WorldBlock();
-	Rectangle HitBox();
 
 public:
 	void Input();
 	void Update();
 	void Draw(Texture2D& Texture);
-	//TODO: Make these functions work later
-	/*float GetBoxX();
-	float GetBoxY();
-	float GetWidth();
-	float GetHeight();
-	float GetX();
-	float GetY();*/
+	
+	Rectangle HitBox();
 };
