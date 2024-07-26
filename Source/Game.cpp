@@ -143,29 +143,29 @@ void Game::AddGoals()
 {
 	for (int i = 0; i < 5; ++i)
 	{
-		//TODO; Make this into a for loop, I want to use emplace_back and add a position in it, does not seem to work, have done it in another project, but does net seem to work here
+		//TODO; Make this into a for loop, I want to use emplace_back and add a position in it, does not seem to work, have done it in another project, but does not seem to work here
 		Goals.emplace_back();
 
 		switch (i)
 		{
 			case 0:
-				Goals[i].SetPos({ 20.0f, 20.0f });
+				Goals[i].SetPos({ 50.0f, 50.0f });
 				break;
 
 			case 1:
-				Goals[i].SetPos({ 80.0f, 20.0f });
+				Goals[i].SetPos({ 200.0f, 50.0f });
 				break;
 
 			case 2:
-				Goals[i].SetPos({ 140.0f, 20.0f });
+				Goals[i].SetPos({ 350.0f, 50.0f });
 				break;
 
 			case 3:
-				Goals[i].SetPos({ 200.0f, 20.0f });
+				Goals[i].SetPos({ 500.0f, 50.0f });
 				break;
 
 			case 4:
-				Goals[i].SetPos({ 260.0f, 20.0f });
+				Goals[i].SetPos({ 650.0f, 50.0f });
 				break;
 		}
 	}

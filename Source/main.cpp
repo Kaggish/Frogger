@@ -3,8 +3,8 @@
 
 int main(void)
 {   
-    const int screenWidth = 320;
-    const int screenHeight = 340;
+    const int screenWidth = 800;
+    const int screenHeight = 750;
 
     InitWindow(screenWidth, screenHeight, "Frogger");
     Game Game;
