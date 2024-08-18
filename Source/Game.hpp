@@ -39,11 +39,11 @@ private:
 	void UpdateCars();
 public:
 	Game();
+	~Game();
 	Game(const Game&) = delete;
 	Game operator=(const Game&) = delete;
 	Game(Game&&) noexcept = delete;
 	Game operator=(Game&&) noexcept = delete;
-	~Game();
 
 	void ProcessInput();
 	void Update();

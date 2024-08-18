@@ -28,25 +28,25 @@ void Frog::WorldBlock()
 
 void Frog::Input()
 {
-	if (IsKeyPressed(KEY_W))
+	if (IsKeyPressed(KEY_W) && !jumping)
 	{
 		speedDir = { 0, -SPEED };
 		jumping = true;
 		rotation = 0;
 	}
-	if (IsKeyPressed(KEY_A))
+	if (IsKeyPressed(KEY_A) && !jumping)
 	{
 		speedDir = { -SPEED, 0 };
 		jumping = true;
 		rotation = 270;
 	}
-	if (IsKeyPressed(KEY_S))
+	if (IsKeyPressed(KEY_S) && !jumping)
 	{
 		speedDir = { 0, SPEED };
 		jumping = true;
 		rotation = 180;
 	}
-	if (IsKeyPressed(KEY_D))
+	if (IsKeyPressed(KEY_D) && !jumping)
 	{
 		speedDir = { SPEED, 0 };
 		jumping = true;

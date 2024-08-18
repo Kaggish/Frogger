@@ -3,6 +3,7 @@
 Game::Game()
 {
 	AddGoals();
+	AddLogs();
 }
 
 Game::~Game()
@@ -75,42 +76,40 @@ void Game::FrogGoalCollision()
 
 void Game::AddLogs()
 {
-	//for (int i = 0; i < 3; i++)
-	//{
-	//	/*m_logs.push_back(Logs(p_screen, "Assets/Log150.png", 100, 120, 2));*/
-	//	/*int Index = (int)Logs.size() - 1;*/
-	//	if (i == 1 || i == 2)
-	//	{
-	//		Logs[i].SetX(Logs[(long long)i - 1].GetX() + 200);
-	//	}
-	//}
-	//for (int i = 0; i < 2; i++)
-	//{
-	//	/*m_logs.push_back(Logs(p_screen, "Assets/Log250.png", 50, 170, -1));*/
-	//	/*int Index = (int)Logs.size() - 1;*/
-	//	if (i == 1)
-	//	{
-	//		Logs[i].SetX(Logs[(long long)i - 1].GetX() + 400);
-	//	}
-	//}
-	//for (int i = 0; i < 3; i++)
-	//{
-	//	/*m_logs.push_back(Logs(p_screen, "Assets/Log150.png", 150, 220, 3));*/
-	//	/*int Index = (int)Logs.size() - 1;*/
-	//	if (i == 1 || i == 2)
-	//	{
-	//		Logs[i].SetX(Logs[(long long)i - 1].GetX() + 200);
-	//	}
-	//}
-	//for (int i = 0; i < 4; i++)
-	//{
-	//	/*m_logs.push_back(Logs(p_screen, "Assets/Log100.png", 100, 270, -3));*/
-	//	/*int Index = (int)Logs.size() - 1;*/
-	//	if (i == 1 || i == 2 || i == 3)
-	//	{
-	//		Logs[i].SetX(Logs[(long long)i - 1].GetX() + 150);
-	//	}
-	//}
+	for (int i = 0; i < 3; i++)
+	{
+		Vector2 TmpPos = { 0.0f + (200.0f * i), 150.0f };
+		float TmpSPEED = 4.0f;
+		Logs.emplace_back(TmpPos, TmpSPEED);
+	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		Vector2 TmpPos = { 0.0f + (200.0f * i), 200.0f };
+		float TmpSPEED = -1.0f;
+		Logs.emplace_back(TmpPos, TmpSPEED);
+	}
+
+	for (int i = 0; i < 2; i++)
+	{
+		Vector2 TmpPos = { 0.0f + (200.0f * i), 250.0f };
+		float TmpSPEED = 5.0f;
+		Logs.emplace_back(TmpPos, TmpSPEED);
+	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		Vector2 TmpPos = { 0.0f + (200.0f * i), 300.0f };
+		float TmpSPEED = -3.0f;
+		Logs.emplace_back(TmpPos, TmpSPEED);
+	}
+
+	for (int i = 0; i < 4; i++)
+	{
+		Vector2 TmpPos = { 0.0f + (200.0f * i), 350.0f };
+		float TmpSPEED = 2.0f;
+		Logs.emplace_back(TmpPos, TmpSPEED);
+	}
 }
 
 void Game::Addtruck()
@@ -143,31 +142,8 @@ void Game::AddGoals()
 {
 	for (int i = 0; i < 5; ++i)
 	{
-		//TODO; Make this into a for loop, I want to use emplace_back and add a position in it, does not seem to work, have done it in another project, but does not seem to work here
-		Goals.emplace_back();
-
-		switch (i)
-		{
-			case 0:
-				Goals[i].SetPos({ 50.0f, 50.0f });
-				break;
-
-			case 1:
-				Goals[i].SetPos({ 200.0f, 50.0f });
-				break;
-
-			case 2:
-				Goals[i].SetPos({ 350.0f, 50.0f });
-				break;
-
-			case 3:
-				Goals[i].SetPos({ 500.0f, 50.0f });
-				break;
-
-			case 4:
-				Goals[i].SetPos({ 650.0f, 50.0f });
-				break;
-		}
+		Vector2 TmpPos = { 50.0f + (50.0f * 3.0f * i), 50.0f };
+		Goals.emplace_back(TmpPos);
 	}
 }
 
@@ -210,22 +186,6 @@ void Game::AddSedan()
 	//}
 }
 
-void Game::DrawCars()
-{
-	//for (int i = 0; i < Cars.size(); i++)
-	//{
-	//	/*Cars[i].Draw();*/
-	//}
-}
-
-void Game::UpdateCars()
-{
-	/*for (int i = 0; i < Cars.size(); i++)
-	{
-		Cars[i].Update();
-	}*/
-}
-
 void Game::ProcessInput()
 {
 	Frog.Input();
@@ -234,12 +194,22 @@ void Game::ProcessInput()
 void Game::Update()
 {
 	Frog.Update();
+
+	for (int i = 0; i < Logs.size(); i++)
+	{
+		Logs[i].Update();
+	}
 }
 
 void Game::Draw()
 {
 	Map.Draw(asset.WaterTexture.m_texture, asset.GrassTexture.m_texture, asset.RoadTexture.m_texture, asset.SafeZoneTexture.m_texture);
 	Frog.Draw(asset.FrogTexture.m_texture);
+	
+	for (int i = 0; i < Logs.size(); i++)
+	{
+		Logs[i].Draw(asset.LogTextures[0].m_texture);
+	}
 	
 	for (int i = 0; i < Goals.size(); ++i)
 	{

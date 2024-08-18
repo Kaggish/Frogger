@@ -3,13 +3,16 @@
 
 class Logs
 {
-	Vector2 Position = {};
-	const float SPEED = {};
-
 	void Movement();
 
 public:
+
+	Vector2 Position = { 0.0f, 0.0f };
+	const float SPEED = {};
+
 	void Wrapping();
 	void Update();
-	void Draw();
+	void Draw(Texture2D& Texture);
+
+	Rectangle HitBox();
 };

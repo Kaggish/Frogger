@@ -9,8 +9,3 @@ void Goal::Draw(Texture2D& texture)
 {
 	DrawTextureV(texture, Position, WHITE);
 }
-
-void Goal::SetPos(Vector2 position)
-{
-	Position = position;
-}
