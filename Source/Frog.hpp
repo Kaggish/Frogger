@@ -13,13 +13,14 @@ class Frog
 	float jumptimer = 0.0f;
 	float rotation = 0.0f;
 
-	bool jumping = false;
-	bool IsOnLog = false;
 
 	void Movement();
 	void WorldBlock();
 
 public:
+	bool IsOnLog = false;
+	bool jumping = false;
+
 	void Input();
 	void Update();
 	void Draw(Texture2D& Texture);
