@@ -4,7 +4,7 @@
 class Frog
 {
 	Vector2 Position = {((float)GetScreenWidth() / 2), 750};
-	Vector2 speedDir = {};
+	Vector2 speedDir = { 0.0f, 0.0f };
 
 	float Offset = 25.0f;
 

@@ -9,7 +9,7 @@ void Cars::Wrapping()
 	{
 		Position.x = (float)GetScreenWidth();
 	}
-	else if (Position.x > (float)GetScreenWidth())
+	if (Position.x > (float)GetScreenWidth())
 	{
 		Position.x = 0;
 	}
@@ -17,7 +17,7 @@ void Cars::Wrapping()
 
 void Cars::Movement()
 {
-	Position.x += SPEED * GetFrameTime();
+	Position.x += SPEED;
 }
 
 void Cars::Update()

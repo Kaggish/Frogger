@@ -25,18 +25,15 @@ private:
 	Resource asset;
 
 	void AddGoals();
+
+	void AddCars();
 	void AddLogs();
-	void Addtruck();
-	void Addracecar();
-	void Addtractor();
-	void Addbus();
-	void AddSedan();
+	
 	void FrogCarCollision();
 	void FrogLogCollision();
 	void FrogWaterCollision();
 	void FrogGoalCollision();
-	void DrawCars();
-	void UpdateCars();
+
 public:
 	Game();
 	~Game();

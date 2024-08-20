@@ -4,6 +4,7 @@ Game::Game()
 {
 	AddGoals();
 	AddLogs();
+	AddCars();
 }
 
 Game::~Game()
@@ -74,116 +75,94 @@ void Game::FrogGoalCollision()
 	//}
 }
 
-void Game::AddLogs()
+void Game::AddCars()
 {
 	for (int i = 0; i < 3; i++)
 	{
-		Vector2 TmpPos = { 0.0f + (200.0f * i), 150.0f };
-		float TmpSPEED = 4.0f;
-		Logs.emplace_back(TmpPos, TmpSPEED);
+		int ID = 0;
+		Vector2 Pos = { 0.0f + (200.0f * i), 450.0f };
+		float SPEED = 4.0f;
+		Cars.emplace_back(Pos, SPEED, ID);
 	}
 
 	for (int i = 0; i < 3; i++)
 	{
-		Vector2 TmpPos = { 0.0f + (200.0f * i), 200.0f };
-		float TmpSPEED = -1.0f;
-		Logs.emplace_back(TmpPos, TmpSPEED);
+		int ID = 1;
+		Vector2 Pos = { 0.0f + (200.0f * i), 500.0f };
+		float SPEED = -1.0f;
+		Cars.emplace_back(Pos, SPEED, ID);
 	}
 
 	for (int i = 0; i < 2; i++)
 	{
-		Vector2 TmpPos = { 0.0f + (200.0f * i), 250.0f };
-		float TmpSPEED = 5.0f;
-		Logs.emplace_back(TmpPos, TmpSPEED);
+		int ID = 2;
+		Vector2 Pos = { 0.0f + (200.0f * i), 550.0f };
+		float SPEED = 5.0f;
+		Cars.emplace_back(Pos, SPEED, ID);
 	}
 
 	for (int i = 0; i < 3; i++)
 	{
-		Vector2 TmpPos = { 0.0f + (200.0f * i), 300.0f };
-		float TmpSPEED = -3.0f;
-		Logs.emplace_back(TmpPos, TmpSPEED);
+		int ID = 3;
+		Vector2 Pos = { 0.0f + (200.0f * i), 600.0f };
+		float SPEED = -3.0f;
+		Cars.emplace_back(Pos, SPEED, ID);
 	}
 
 	for (int i = 0; i < 4; i++)
 	{
-		Vector2 TmpPos = { 0.0f + (200.0f * i), 350.0f };
-		float TmpSPEED = 2.0f;
-		Logs.emplace_back(TmpPos, TmpSPEED);
+		int ID = 4;
+		Vector2 Pos = { 0.0f + (200.0f * i), 650.0f };
+		float SPEED = 2.0f;
+		Cars.emplace_back(Pos, SPEED, ID);
 	}
 }
 
-void Game::Addtruck()
+void Game::AddLogs()
 {
-	//for (int i = 0; i < 3; i++)
-	//{
-	//	/*m_cars.push_back(Cars(p_screen,"Assets/Truck.png", 150, (float)p_screen.GetWindowHeight() / 2 + 75, -3));*/
-	//	/*int Index = (int)Cars.size() - 1;*/
-	//	if (i == 1 || i == 2)
-	//	{
-	//		/*Cars[Index].SetX(Cars[(long long)Index - 1].GetX() + 250);*/
-	//	}
-	//}
-}
+	for (int i = 0; i < 3; i++)
+	{
+		Vector2 Pos = { 0.0f + (200.0f * i), 150.0f };
+		float SPEED = 4.0f;
+		Logs.emplace_back(Pos, SPEED);
+	}
 
-void Game::Addracecar()
-{
-	//for (int i = 0; i < 2; i++)
-	//{
-	//	/*m_cars.push_back(Cars(p_screen, "Assets/Racecar.png", 250, (float)p_screen.GetWindowHeight() / 2 + 125, 4));*/
-	//	/*int Index = (int)Cars.size() - 1;*/
-	//	if (i == 1)
-	//	{
-	//		/*m_cars[Index].SetX(m_cars[(long long)Index - 1].GetX() + 250);*/
-	//	}
-	//}
+	for (int i = 0; i < 3; i++)
+	{
+		Vector2 Pos = { 0.0f + (200.0f * i), 200.0f };
+		float SPEED = -1.0f;
+		Logs.emplace_back(Pos, SPEED);
+	}
+
+	for (int i = 0; i < 2; i++)
+	{
+		Vector2 Pos = { 0.0f + (200.0f * i), 250.0f };
+		float SPEED = 5.0f;
+		Logs.emplace_back(Pos, SPEED);
+	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		Vector2 Pos = { 0.0f + (200.0f * i), 300.0f };
+		float SPEED = -3.0f;
+		Logs.emplace_back(Pos, SPEED);
+	}
+
+	for (int i = 0; i < 4; i++)
+	{
+		Vector2 Pos = { 0.0f + (200.0f * i), 350.0f };
+		float SPEED = 2.0f;
+		Logs.emplace_back(Pos, SPEED);
+	}
 }
 
 void Game::AddGoals()
 {
 	for (int i = 0; i < 5; ++i)
 	{
-		Vector2 TmpPos = { 50.0f + (50.0f * 3.0f * i), 50.0f };
-		Goals.emplace_back(TmpPos);
+		Vector2 Pos = { 50.0f + (50.0f * 3.0f * i), 50.0f };
+		Goals.emplace_back(Pos);
 	}
-}
-
-void Game::Addbus()
-{
-	//for (int i = 0; i < 3;i++)
-	//{
-	//	/*m_cars.push_back(Cars(p_screen,"Assets/Bus.png", 200, (float)p_screen.GetWindowHeight() / 2 + 175, -3));*/
-	//	/*int Index = (int)Cars.size() - 1;*/
-	//	if (i == 1 || i == 2)
-	//	{
-	//		/*m_cars[Index].SetX(m_cars[(long long)Index - 1].GetX() + 250);*/
-	//	}
-	//}
-}
-
-void Game::Addtractor()
-{
-	//for (int i = 0; i < 3; i++)
-	//{
-	//	/*m_cars.push_back(Cars(p_screen,"Assets/Tractor.png", 150, (float)p_screen.GetWindowHeight() / 2 + 225, 2));*/
-	//	/*int Index = (int)Cars.size() - 1;*/
-	//	if (i == 1 || i == 2 || i == 3)
-	//	{
-	//		/*m_cars[Index].SetX(m_cars[(long long)Index - 1].GetX() + 250);*/
-	//	}
-	//}
-}
-
-void Game::AddSedan()
-{
-	//for (int i = 0; i < 3; i++)
-	//{
-	//	/*m_cars.push_back(Cars(p_screen,"Assets/Sedan.png", 300, (float)p_screen.GetWindowHeight() / 2 + 275, -3));*/
-	//	/*int Index = (int)Cars.size() - 1;*/
-	//	if (i == 1 || i == 2)
-	//	{
-	//		/*m_cars[Index].SetX(m_cars[(long long)Index - 1].GetX() + 250);*/
-	//	}
-	//}
 }
 
 void Game::ProcessInput()
@@ -197,7 +176,12 @@ void Game::Update()
 
 	for (int i = 0; i < Logs.size(); i++)
 	{
-		Logs[i].Update();
+		Logs[i].Update(asset.LogTextures[0].m_texture);
+	}
+
+	for (int i = 0; i < Cars.size(); i++)
+	{
+		Cars[i].Update();
 	}
 }
 
@@ -211,8 +195,25 @@ void Game::Draw()
 		Logs[i].Draw(asset.LogTextures[0].m_texture);
 	}
 	
-	for (int i = 0; i < Goals.size(); ++i)
+	for (int i = 0; i < Cars.size(); i++)
 	{
-		DrawRectangle(static_cast<int>(Goals[i].HitBox().x), static_cast<int>(Goals[i].HitBox().y), static_cast<int>(Goals[i].HitBox().width), static_cast<int>(Goals[i].HitBox().height), RED);
+		switch (Cars[i].ID)
+		{
+			case 0:
+				Cars[i].Draw(asset.CarTextures[Cars[i].ID].m_texture);
+			break;
+			case 1:
+				Cars[i].Draw(asset.CarTextures[Cars[i].ID].m_texture);
+				break;
+			case 2:
+				Cars[i].Draw(asset.CarTextures[Cars[i].ID].m_texture);
+				break;
+			case 3:
+				Cars[i].Draw(asset.CarTextures[Cars[i].ID].m_texture);
+				break;
+			case 4:
+				Cars[i].Draw(asset.CarTextures[Cars[i].ID].m_texture);
+				break;
+		}
 	}
 }
